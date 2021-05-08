@@ -1,26 +1,28 @@
+local Dot = require "src.objs.base.dot"
+local Rect = Dot:extend()
 
-local Object = require "modules.classic"
-local Rect = Object:extend()
 
 function Rect:new(x, y, w, h, s)
-    self.x = x or math.random(100, 500)
-    self.y = y or math.random(100, 500)
-    self.width = w or math.random(10, 80)
-    self.height = h or math.random(10, 80)
-    self.speed = s or 100
+    Rect.super:new(x, y, s)
+    self.sprite = love.graphics.newImage("assets/sprites/sheep.png")
+    self.sw = self.sprite:getWidth()
+    self.sh = self.sprite:getHeight()
+    local ratio = self.sw / self.sh
+    self.width = w or normalize(math.random(10, 80), 10, 80)
+    self.height = h or self.width / ratio
 end
 
 function Rect:print()
-    print(self.x, self.y, self.width, self.height, self.speed)
-end
-
-function Rect:move(dt)
-    self.x = self.x + self.speed * dt * math.random(-1,1)
-    self.y = self.y + self.speed * dt * math.random(-1,1)
+    print(self.super)
+    print("X", self.x)
+    print("Y", self.y)
+    print("Speed", self.speed)
+    print("Width", self.width)
+    print("Height", self.height)
 end
 
 function Rect:draw()
-    love.graphics.rectangle("fill", self.x, self.y, self.width, self.height)
+    love.graphics.draw(self.sprite, self.x, self.y, 0, self.width, self.height, self.sw / 2, self.sh / 2)
 end
 
 return Rect

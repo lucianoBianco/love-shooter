@@ -1,7 +1,7 @@
-require("controllers.inputs")
-
+require "src.imports"
 function love.load()
-    rects = require "entities.rects"
+    rects = require "src.entities.rects"
+    love.graphics.setBackgroundColor(color(255, 255, 0))
 end
 
 function love.update(dt)

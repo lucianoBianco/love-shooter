@@ -1,4 +1,4 @@
-require('actions.factory')
+-- require('actions.factory')
 local factory = require "src.actions.factory"
 
 function love.keypressed(key)
@@ -6,8 +6,6 @@ function love.keypressed(key)
         factory.spawnRect()
     end
     if key == "up" then
-        for _, v in ipairs(rects) do
-            v:print()
-        end
+        factory.printObjs()
     end
 end
