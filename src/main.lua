@@ -10,6 +10,7 @@ function love.update(dt)
     end
 end
 
+
 function love.draw()
     for _, v in ipairs(rects) do
         v:draw()
