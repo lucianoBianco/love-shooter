@@ -7,13 +7,15 @@ function factory.spawnRect()
     rects.add(newRect)
 end
 
+function factory.toggle(key, state)
+    for _, v in ipairs(rects) do
+        v[key] = state
+    end
+end
+
 function factory.printObjs()
     for _, v in ipairs(rects) do
         v:print()
-        for index, value in ipairs(v.muscle) do
-            print(value)
-        end
-        print()
     end
 end
 

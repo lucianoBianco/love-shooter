@@ -6,7 +6,7 @@ end
 
 function love.update(dt)
     for _, v in ipairs(rects) do
-        v:move(dt)
+        v:motor(dt)
     end
 end
 
