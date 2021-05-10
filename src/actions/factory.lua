@@ -3,8 +3,8 @@ local Rect = require "src.objs.rect"
 local factory = {}
 
 function factory.spawnRect()
-    local newRect = Rect()
-    rects.add(newRect)
+    -- rects.add(newRect)
+    table.insert(rects, Rect())
 end
 
 function factory.toggle(key, state)

@@ -1,3 +1,3 @@
 require "src.utils.mathUtils"
 
-require "src.controllers.inputs" 
+require "src.controllers.inputs"
